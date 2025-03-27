@@ -12,8 +12,8 @@ display_usage() {
 }
 
 initialize_variables() {
-    if test -d "$GKI_ROOT/common/drivers"; then
-         DRIVER_DIR="$GKI_ROOT/common/drivers"
+    if test -d "$GKI_ROOT/kernel-5.10/drivers"; then
+         DRIVER_DIR="$GKI_ROOT/kernel-5.10/drivers"
     elif test -d "$GKI_ROOT/drivers"; then
          DRIVER_DIR="$GKI_ROOT/drivers"
     else
@@ -63,7 +63,8 @@ setup_kernelsu() {
 # Process command-line arguments
 if [ "$#" -eq 0 ]; then
     initialize_variables
-    setup_kernelsu
+    #setup_kernelsu
+    perform_cleanup
 elif [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     display_usage
 elif [ "$1" = "--cleanup" ]; then
